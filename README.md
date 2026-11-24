@@ -10,14 +10,14 @@ python3 replication_simulation.py
 
 ```mermaid
 flowchart LR
-	Client[Client]
-	Primary[Primary Replica\nInventory: authoritative]
-	Secondary[Secondary Replica\nInventory: replicated copy]
+	Client["Client"]
+	Primary["Primary Replica<br/>Inventory: authoritative"]
+	Secondary["Secondary Replica<br/>Inventory: replicated copy"]
 
 	Client -->|Read| Primary
 	Client -->|Read| Secondary
 	Client -->|Write inventory| Primary
-	Primary -.->|Propagate update\n(or queue while paused)| Secondary
+	Primary -.->|Propagate update<br/>(or queue while paused)| Secondary
 ```
 
 ## Successful replication, stale-read test, and replicas converging after replication resumes:
