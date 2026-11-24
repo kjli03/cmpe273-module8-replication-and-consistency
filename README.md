@@ -17,8 +17,10 @@ flowchart LR
 	Client -->|Read| Primary
 	Client -->|Read| Secondary
 	Client -->|Write inventory| Primary
-	Primary -.->|Propagate update<br/>(or queue while paused)| Secondary
+	Primary -.->|Replicate update| Secondary
 ```
+
+When replication is paused, the Primary queues updates until it resumes.
 
 ## Successful replication, stale-read test, and replicas converging after replication resumes:
 ![alt text](image.png)
